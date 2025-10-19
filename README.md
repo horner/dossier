@@ -83,7 +83,7 @@ We invite you to push the project forward by implementing a missing part of a la
 
 While tree-sitter gives you a parser for most languages, we still need to write implementations for each supported language.
 
-In practice this means reading the input files, walking the AST provided by tree-sitter, resolving types as best as we can, and finally emitting our standard `Entity` JSON structures.
+In practice this means reading the input files, walking the CST provided by tree-sitter, resolving types as best as we can, and finally emitting our standard `Entity` JSON structures.
 
 Currently we have started implementing 2 languages: Typescript and Python. Typescript is the most advanced language, while Python is still in a POC-stage.
 
@@ -132,7 +132,7 @@ Here are some questions you may have, and hopefully a useful answer to match:
 
 ### It's not possible to do this without using the language runtime/compiler you are targeting, right?
 
-This is probably correct in the literal case. Depending on the language, there may well be things Dossier will not be able to infer since it all it has is the tree-sitter AST and no access to the language runtime. A good example of this would be type inference, or resolving types that are computed from dynamic expressions.
+This is probably correct in the literal case. Depending on the language, there may well be things Dossier will not be able to infer since it all it has is the tree-sitter CST and no access to the language runtime. A good example of this would be type inference, or resolving types that are computed from dynamic expressions.
 
 But you do not need to support 100% of a language to be a useful tool for e.g. creating documentation for a public API of a library. Our task is made simpler by the fact that Dossier only cares about declarations and signatures, which is a much smaller subset of a full language. 
 
